@@ -1,0 +1,16 @@
+
+body {
+	margin: 40px;
+}
+
+#map {
+	height: 500px;
+	width: 100%;
+}
+
+.input-width {
+  width: 100%;
+}
+
+
+

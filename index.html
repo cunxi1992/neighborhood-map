@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- 根据屏幕自适应 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 浏览器标签栏的标题 -->
+  <title>我家的周边环境</title>
+    <!-- 引入样式表 -->
+	  <link rel="stylesheet" href="css/bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        <!-- 这里用来展示数据加载出错时的提示文案 -->
+        <div id="error"><span data-bind="text: errorDisplay"></span></div>
+
+        <!-- 这个是关键词输入框，设置输入框的样式，以及绑定knockout -->
+        <div class="input-group input-width">
+          <input id="filterInputText" type="text" class="form-control" placeholder="请输入关键词..." data-bind="value: filterText, valueUpdate: 'afterkeydown', event: {keyup: applyFilter}">
+        </div>
+
+        <!-- 地点列表 -->
+        <ul class="list-group" data-bind="foreach: mapList">
+          <a class="list-group-item" data-bind="css: {active: selected}, text: name, visible: show, click: $parent.setSelected"></a>
+        </ul>
+      </div>
+
+      <!-- 地图样式 -->
+      <div class="col-sm-9">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type='text/javascript' src='js/jquery.min.js'></script>
+  <script src="js/app.js"></script>
+  <script src="js/knockout.js"></script>
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR311MjFNkLySHq0HqSOGRCzDUaJGf3Xc&callback=initMap"></script>
+</body>
+</html>
